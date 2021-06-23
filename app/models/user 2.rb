@@ -40,14 +40,6 @@ class User < ActiveRecord::Base
     def User.digest(token)
       Digest::SHA1.hexdigest(token.to_s)
     end
-
-    def self.search(search)
-      if search
-        where('name LIKE ?', "%#{search}%")
-      else
-        where(nil)
-      end
-    end
   
     private
   
